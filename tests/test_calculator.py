@@ -7,23 +7,23 @@ class CalculatorTestCase(unittest.TestCase):
 
     def testAddition(self):
         cal = Calculator()
-        result = cal.addition(5, 10)
-        self.assertEqual(15, result)
+        result = cal.addition(0.001, 0.003)
+        self.assertEqual(0.004, result)
 
     def testSubtraction(self):
         cal = Calculator()
-        result = cal.subtraction(10, 5)
-        self.assertEqual(5, result)
+        result = cal.subtraction(0.1, 0.001)
+        self.assertEqual(0.099, result)
 
     def testMultiply(self):
         cal = Calculator()
-        result = cal.multiply(10, 5)
-        self.assertEquals(50, result)
+        result = cal.multiply(0.001, 10)
+        self.assertEquals(0.01, result)
 
     def testDivide(self):
         cal = Calculator()
-        result = cal.divide(10, 5)
-        self.assertEquals(2, result)
+        result = cal.divide(5, 1000)
+        self.assertEquals(0.005, result)
 
     def testDivideError(self):
         cal = Calculator()
@@ -39,6 +39,11 @@ class CalculatorTestCase(unittest.TestCase):
         result = cal.logMy(0.125, 2)
         self.assertEquals(-3, result)
 
+    def testLog(self):
+        cal = Calculator()
+        log1 = cal.logMath(12223, 2)
+        log2 = cal.logMy(12223, 2)
+        self.assertEquals(round(log1, 5), log2)
 
     def testLogMyErrorOne(self):
         cal = Calculator()
